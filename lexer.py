@@ -12,7 +12,6 @@ class Lexer:
         self.token = Token()
         self.line = 1
         self.column = 0
-        self.c_pos = 0
         self.next_char()
         self.tokens: list[Token] = []
 
@@ -27,7 +26,6 @@ class Lexer:
             self.c = '\n'
             return
         self.c = self.stream[self.line - 1][self.column]
-        self.c_pos += 1
         self.column += 1
 
     def error(self):
